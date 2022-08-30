@@ -31,7 +31,9 @@ def scrape_novidades(html_content):
 
 # Requisito 3
 def scrape_next_page_link(html_content):
-    """Seu código deve vir aqui"""
+    select = parsel.Selector(text=html_content)
+    nextPageURL = select.css("a.next.page-numbers::attr(href)").get()
+    return nextPageURL
 
 
 # Requisito 4
